@@ -1,12 +1,21 @@
 <script>
   let currentView = "start_page";
   let estimation = { name: "", description: "" };
+  let estimations = [];
 
-  function resetForm() {
+  function resetEstimation() {
     estimation = { name: "", description: ""}
   }
 
-  $: console.dir(estimation)
+  function submitEstimation() {
+    estimations = estimations.concat(estimation)
+    resetEstimation();
+    gotoStartPage();
+  }
+
+  function gotoStartPage() {
+    currentView = "start_page";
+  }
 </script>
 
 <header>
@@ -16,7 +25,7 @@
     </ul>
     <ul>
       <li>
-        <button class="outline" on:click={() => (currentView = "start_page")}
+        <button class="outline" on:click={gotoStartPage}
           >Startseite</button
         >
       </li>
@@ -32,19 +41,19 @@
 
 <main>
   {#if currentView === "create_estimation"}
-    <form>
+    <form on:submit|preventDefault={submitEstimation}>
       <fieldset>
         <label>
           Bezeichnung
-          <input type="text" bind:value={estimation.name} />
+          <input type="text" bind:value={estimation.name} required />
         </label>
         <label>
           Beschreibung
-          <textarea bind:value={estimation.description} />
+          <textarea bind:value={estimation.description} required />
         </label>
       </fieldset>
       <fieldset class="buttons">
-        <button type="reset" on:click={resetForm}>Zurücksetzen</button>
+        <button type="reset" on:click={resetEstimation}>Zurücksetzen</button>
         <button type="submit">Speichern</button>
       </fieldset>
     </form>
