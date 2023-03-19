@@ -1,26 +1,15 @@
 <script>
-  import ListEstimations from "./lib/pages/ListEstimations.svelte";
   import CreateEstimation from "./lib/pages/CreateEstimation.svelte";
+  import EditEstimation from "./lib/pages/EditEstimation.svelte";
+  import ListEstimations from "./lib/pages/ListEstimations.svelte";
 
   let currentView = "start_page";
-  let estimation = { id: crypto.randomUUID(), name: "", description: "" };
   let estimations = [];
-
-  function resetEstimation() {
-    estimation = { id: crypto.randomUUID(), name: "", description: "" };
-  }
-
-  function submitEstimation() {
-    if (currentView === "create_estimation") {
-      estimations = estimations.concat(estimation);
-    }
-    resetEstimation();
-    gotoStartPage();
-  }
+  let estimation;
 
   function addEstimation({ detail }) {
     estimations = estimations.concat(detail.estimation);
-    currentView = "start_page";
+    gotoStartPage();
   }
 
   function gotoStartPage() {
@@ -34,6 +23,14 @@
   function editEstimation({ detail }) {
     estimation = estimations.find((est) => est.id === detail.id);
     currentView = "edit_estimation";
+  }
+
+  function updateEstimation({ detail }) {
+    estimations = estimations.map((est) =>
+      est.id === detail.estimation.id ? detail.estimation : est
+    );
+    estimation = undefined;
+    gotoStartPage();
   }
 </script>
 
@@ -60,22 +57,7 @@
   {#if currentView === "create_estimation"}
     <CreateEstimation on:estimation:create={addEstimation} />
   {:else if currentView === "edit_estimation"}
-    <form on:submit|preventDefault={submitEstimation}>
-      <fieldset>
-        <label>
-          Bezeichnung
-          <input type="text" bind:value={estimation.name} required />
-        </label>
-        <label>
-          Beschreibung
-          <textarea bind:value={estimation.description} required />
-        </label>
-      </fieldset>
-      <fieldset class="buttons">
-        <button type="reset" on:click={resetEstimation}>Zurücksetzen</button>
-        <button type="submit">Speichern</button>
-      </fieldset>
-    </form>
+    <EditEstimation {estimation} on:estimation:update={updateEstimation} />
   {:else}
     <ListEstimations
       {estimations}
@@ -89,11 +71,5 @@
   main {
     margin: 3rem auto;
     width: 100%;
-  }
-
-  .buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
   }
 </style>
