@@ -1,10 +1,10 @@
 <script>
   let currentView = "start_page";
-  let estimation = { name: "", description: "" };
+  let estimation = { id: crypto.randomUUID(), name: "", description: "" };
   let estimations = [];
 
   function resetEstimation() {
-    estimation = { name: "", description: "" };
+    estimation = { id: crypto.randomUUID(), name: "", description: "" };
   }
 
   function submitEstimation() {
@@ -15,6 +15,10 @@
 
   function gotoStartPage() {
     currentView = "start_page";
+  }
+
+  function deleteEstimation(id) {
+    estimations = estimations.filter((est) => est.id !== id);
   }
 </script>
 
@@ -62,7 +66,9 @@
         <p>{est.description}</p>
         <footer>
           <button class="secondary">Edit</button>
-          <button class="secondary">Delete</button>
+          <button class="secondary" on:click={() => deleteEstimation(est.id)}
+            >Delete</button
+          >
         </footer>
       </article>
     {:else}
