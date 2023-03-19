@@ -1,4 +1,6 @@
 <script>
+  import CreateEstimation from "./lib/pages/CreateEstimation.svelte";
+
   let currentView = "start_page";
   let estimation = { id: crypto.randomUUID(), name: "", description: "" };
   let estimations = [];
@@ -13,6 +15,11 @@
     }
     resetEstimation();
     gotoStartPage();
+  }
+
+  function addEstimation({ detail }) {
+    estimations = estimations.concat(detail.estimation);
+    currentView = "start_page";
   }
 
   function gotoStartPage() {
@@ -50,22 +57,7 @@
 
 <main>
   {#if currentView === "create_estimation"}
-    <form on:submit|preventDefault={submitEstimation}>
-      <fieldset>
-        <label>
-          Bezeichnung
-          <input type="text" bind:value={estimation.name} required />
-        </label>
-        <label>
-          Beschreibung
-          <textarea bind:value={estimation.description} required />
-        </label>
-      </fieldset>
-      <fieldset class="buttons">
-        <button type="reset" on:click={resetEstimation}>Zurücksetzen</button>
-        <button type="submit">Speichern</button>
-      </fieldset>
-    </form>
+    <CreateEstimation on:estimation:create={addEstimation} />
   {:else if currentView === "edit_estimation"}
     <form on:submit|preventDefault={submitEstimation}>
       <fieldset>
