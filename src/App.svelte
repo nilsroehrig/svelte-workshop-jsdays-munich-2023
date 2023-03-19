@@ -4,11 +4,11 @@
   let estimations = [];
 
   function resetEstimation() {
-    estimation = { name: "", description: ""}
+    estimation = { name: "", description: "" };
   }
 
   function submitEstimation() {
-    estimations = estimations.concat(estimation)
+    estimations = estimations.concat(estimation);
     resetEstimation();
     gotoStartPage();
   }
@@ -25,9 +25,7 @@
     </ul>
     <ul>
       <li>
-        <button class="outline" on:click={gotoStartPage}
-          >Startseite</button
-        >
+        <button class="outline" on:click={gotoStartPage}>Startseite</button>
       </li>
       <li>
         <button
@@ -58,13 +56,21 @@
       </fieldset>
     </form>
   {:else}
-    <p>Liste von Schätzungen</p>
+    {#each estimations as est}
+      <article>
+        <header><strong>{est.name}</strong></header>
+        <p>{est.description}</p>
+      </article>
+    {:else}
+      <p>Bislang wurde noch nichts geschätzt.</p>
+    {/each}
   {/if}
 </main>
 
 <style>
   main {
     margin: 3rem auto;
+    width: 100%;
   }
 
   .buttons {
