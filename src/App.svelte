@@ -1,5 +1,12 @@
 <script>
   let currentView = "start_page";
+  let estimation = { name: "", description: "" };
+
+  function resetForm() {
+    estimation = { name: "", description: ""}
+  }
+
+  $: console.dir(estimation)
 </script>
 
 <header>
@@ -29,15 +36,15 @@
       <fieldset>
         <label>
           Bezeichnung
-          <input type="text" />
+          <input type="text" bind:value={estimation.name} />
         </label>
         <label>
           Beschreibung
-          <textarea />
+          <textarea bind:value={estimation.description} />
         </label>
       </fieldset>
       <fieldset class="buttons">
-        <button type="reset">Zurücksetzen</button>
+        <button type="reset" on:click={resetForm}>Zurücksetzen</button>
         <button type="submit">Speichern</button>
       </fieldset>
     </form>
