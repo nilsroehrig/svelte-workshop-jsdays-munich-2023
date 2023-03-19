@@ -25,7 +25,22 @@
 
 <main>
   {#if currentView === "create_estimation"}
-    <p>Schätzung erstellen</p>
+    <form>
+      <fieldset>
+        <label>
+          Bezeichnung
+          <input type="text" />
+        </label>
+        <label>
+          Beschreibung
+          <textarea />
+        </label>
+      </fieldset>
+      <fieldset class="buttons">
+        <button type="reset">Zurücksetzen</button>
+        <button type="submit">Speichern</button>
+      </fieldset>
+    </form>
   {:else}
     <p>Liste von Schätzungen</p>
   {/if}
@@ -34,5 +49,11 @@
 <style>
   main {
     margin: 3rem auto;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 </style>
