@@ -1,4 +1,5 @@
 <script>
+  import ListEstimations from "./lib/pages/ListEstimations.svelte";
   import CreateEstimation from "./lib/pages/CreateEstimation.svelte";
 
   let currentView = "start_page";
@@ -26,12 +27,12 @@
     currentView = "start_page";
   }
 
-  function deleteEstimation(id) {
-    estimations = estimations.filter((est) => est.id !== id);
+  function deleteEstimation({ detail }) {
+    estimations = estimations.filter((est) => est.id !== detail.id);
   }
 
-  function editEstimation(id) {
-    estimation = estimations.find((est) => est.id === id);
+  function editEstimation({ detail }) {
+    estimation = estimations.find((est) => est.id === detail.id);
     currentView = "edit_estimation";
   }
 </script>
@@ -76,22 +77,11 @@
       </fieldset>
     </form>
   {:else}
-    {#each estimations as est}
-      <article>
-        <header><strong>{est.name}</strong></header>
-        <p>{est.description}</p>
-        <footer>
-          <button class="secondary" on:click={() => editEstimation(est.id)}
-            >Edit</button
-          >
-          <button class="secondary" on:click={() => deleteEstimation(est.id)}
-            >Delete</button
-          >
-        </footer>
-      </article>
-    {:else}
-      <p>Bislang wurde noch nichts geschätzt.</p>
-    {/each}
+    <ListEstimations
+      {estimations}
+      on:estimation:delete={deleteEstimation}
+      on:estimation:edit={editEstimation}
+    />
   {/if}
 </main>
 
@@ -99,16 +89,6 @@
   main {
     margin: 3rem auto;
     width: 100%;
-  }
-
-  footer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  footer button {
-    margin: 0;
   }
 
   .buttons {
