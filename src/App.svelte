@@ -60,6 +60,10 @@
       <article>
         <header><strong>{est.name}</strong></header>
         <p>{est.description}</p>
+        <footer>
+          <button class="secondary">Edit</button>
+          <button class="secondary">Delete</button>
+        </footer>
       </article>
     {:else}
       <p>Bislang wurde noch nichts geschätzt.</p>
@@ -71,6 +75,16 @@
   main {
     margin: 3rem auto;
     width: 100%;
+  }
+
+  footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  footer button {
+    margin: 0;
   }
 
   .buttons {
