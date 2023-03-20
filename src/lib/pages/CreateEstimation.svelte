@@ -1,12 +1,13 @@
 <script>
-  import { createEventDispatcher } from "svelte";
+  import { getContext } from "svelte";
   import EstimationForm from "../components/EstimationForm.svelte";
 
-  const dispatch = createEventDispatcher();
+  export let router = getContext("router");
+  export let estimations = getContext("estimations");
 
-  function submitEstimation({detail}) {
-    console.dir({detail})
-    dispatch("estimation:create", detail);
+  function submitEstimation({ detail }) {
+    estimations.add(detail.estimation);
+    router.goto("start_page");
   }
 </script>
 
