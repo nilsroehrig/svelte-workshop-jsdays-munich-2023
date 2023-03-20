@@ -83,7 +83,11 @@
     <button class="secondary" on:click={() => router.goto("start_page")}
       >Abbrechen</button
     >
-    <button class="secondary">Weiter</button>
+    <button
+      class="secondary"
+      on:click={() => router.goto("estimate_stories", { estimation, stories })}
+      >Weiter</button
+    >
   </footer>
 </article>
 
