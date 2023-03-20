@@ -2,31 +2,6 @@
   import { getContext } from "svelte";
 
   export let router = getContext("router");
-
-  let estimations = [];
-  let estimation;
-
-  function addEstimation({ detail }) {
-    estimations = estimations.concat(detail.estimation);
-    router.goto("start_page");
-  }
-
-  function deleteEstimation({ detail }) {
-    estimations = estimations.filter((est) => est.id !== detail.id);
-  }
-
-  function editEstimation({ detail }) {
-    estimation = estimations.find((est) => est.id === detail.id);
-    router.goto("edit_estimation");
-  }
-
-  function updateEstimation({ detail }) {
-    estimations = estimations.map((est) =>
-      est.id === detail.estimation.id ? detail.estimation : est
-    );
-    estimation = undefined;
-    router.goto("start_page");
-  }
 </script>
 
 <header>
@@ -51,15 +26,7 @@
 </header>
 
 <main>
-  <svelte:component
-    this={$router.component}
-    {estimation}
-    {estimations}
-    on:estimation:create={addEstimation}
-    on:estimation:update={updateEstimation}
-    on:estimation:delete={deleteEstimation}
-    on:estimation:edit={editEstimation}
-  />
+  <svelte:component this={$router.component} {...$router.params} />
 </main>
 
 <style>
