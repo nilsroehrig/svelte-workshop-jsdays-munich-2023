@@ -23,7 +23,7 @@
     }
 
     estimations.add(estimation);
-    router.goto("start_page");
+    router.goto("add_stories", { estimation });
   }
 </script>
 
