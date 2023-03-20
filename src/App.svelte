@@ -1,7 +1,25 @@
 <script>
   import { getContext } from "svelte";
+  import { createEstimationStore } from "./lib/stores/estimations";
 
   export let router = getContext("router");
+
+  async function getEstimations() {
+    const response = await fetch("/api/estimations");
+
+    if (!response.ok) {
+      console.error("Could not fetch estimations");
+    } else {
+      try {
+        const json = await response.json();
+        return createEstimationStore(json);
+      } catch (e) {
+        console.error("Could not parse estimations", e);
+      }
+    }
+
+    return createEstimationStore([]);
+  }
 </script>
 
 <header>
@@ -26,7 +44,15 @@
 </header>
 
 <main>
-  <svelte:component this={$router.component} {...$router.params} />
+  {#await getEstimations()}
+    <article aria-busy="true" />
+  {:then estimations}
+    <svelte:component
+      this={$router.component}
+      {...$router.params}
+      {estimations}
+    />
+  {/await}
 </main>
 
 <style>
