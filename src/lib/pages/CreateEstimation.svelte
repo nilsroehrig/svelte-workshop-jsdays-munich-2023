@@ -5,12 +5,28 @@
   export let router = getContext("router");
   export let estimations = getContext("estimations");
 
-  function submitEstimation({ detail }) {
-    estimations.add(detail.estimation);
+  let error = null;
+
+  async function submitEstimation({ detail }) {
+    const { estimation } = detail;
+    const response = await fetch("/api/estimations", {
+      method: "POST",
+      body: JSON.stringify(estimation),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      error = `Die Schätzung konnte nicht gespeichert werden. Status: ${response.status}`;
+      return;
+    }
+
+    estimations.add(estimation);
     router.goto("start_page");
   }
 </script>
 
 <h1>Neue Schätzung</h1>
 
-<EstimationForm on:submit={submitEstimation} />
+<EstimationForm on:submit={submitEstimation} bind:error />
