@@ -1,0 +1,34 @@
+{
+  "estimations": [
+    {
+      "id": "0deac403-75de-49af-a6bb-362e05c3757b",
+      "name": "Prototyp bauen",
+      "description": "In dieser Schätzung werden alle Stories betrachtet, die für den Prototypen vonnöten sind."
+    },
+    {
+      "id": "9b7fbf3a-3c7e-4f06-aac9-14e0e7d2bfc5",
+      "name": "UI/UX-Design erstellen",
+      "description": "Schätzung für die Gestaltung der Benutzeroberfläche und des Benutzererlebnisses."
+    },
+    {
+      "id": "c439d9af-7454-4b90-b4cf-6a1323bb3314",
+      "name": "Backend-Entwicklung",
+      "description": "Schätzung für die Entwicklung der Server- und Datenbankseite der Anwendung."
+    },
+    {
+      "id": "8e8b1d9e-6f52-4d51-a510-0d95ed738c0e",
+      "name": "Frontend-Entwicklung",
+      "description": "Schätzung für die Entwicklung der Benutzeroberfläche und der Client-seitigen Logik der Anwendung."
+    },
+    {
+      "id": "de1f62eb-36c7-4a89-85ed-00866dc05f04",
+      "name": "Automatisierte Tests schreiben",
+      "description": "Schätzung für die Erstellung von automatisierten Tests, um die Funktionalität der Anwendung zu gewährleisten."
+    },
+    {
+      "id": "be39efc5-93a7-46e5-ba7d-ba1b65aa2b24",
+      "name": "Deployment und Infrastruktur aufsetzen",
+      "description": "Schätzung für die Einrichtung der Infrastruktur und des Deployment-Prozesses der Anwendung."
+    }
+  ]
+}
