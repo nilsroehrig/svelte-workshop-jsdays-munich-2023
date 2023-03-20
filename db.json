@@ -30,5 +30,6 @@
       "name": "Deployment und Infrastruktur aufsetzen",
       "description": "Schätzung für die Einrichtung der Infrastruktur und des Deployment-Prozesses der Anwendung."
     }
-  ]
+  ],
+  "stories": []
 }
