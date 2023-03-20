@@ -1,20 +1,29 @@
 <script>
   import { getContext } from "svelte";
+  import { scale } from "svelte/transition";
 
-  export let router = getContext("router")
+  export let router = getContext("router");
   export let estimations = getContext("estimations");
 
-  function deleteEstimation(id) {
+  async function deleteEstimation(id) {
+    const response = await fetch(`/api/estimations/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      return alert("Die Schätzung konnte nicht gelöscht werden.");
+    }
+
     estimations.delete(id);
   }
 
   function editEstimation(estimation) {
-    router.goto("edit_estimation", { estimation })
+    router.goto("edit_estimation", { estimation });
   }
 </script>
 
-{#each $estimations as estimation}
-  <article>
+{#each $estimations as estimation (estimation.id)}
+  <article transition:scale|local>
     <header><strong>{estimation.name}</strong></header>
     <p>{estimation.description}</p>
     <footer>
