@@ -1,25 +1,24 @@
 <script>
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher, getContext } from "svelte";
 
-  const dispatch = createEventDispatcher();
-
-  export let estimations = [];
+  export let router = getContext("router")
+  export let estimations = getContext("estimations");
 
   function deleteEstimation(id) {
-    dispatch("estimation:delete", { id });
+    estimations.delete(id);
   }
 
-  function editEstimation(id) {
-    dispatch("estimation:edit", { id });
+  function editEstimation(estimation) {
+    router.goto("edit_estimation", { estimation })
   }
 </script>
 
-{#each estimations as estimation}
+{#each $estimations as estimation}
   <article>
     <header><strong>{estimation.name}</strong></header>
     <p>{estimation.description}</p>
     <footer>
-      <button class="secondary" on:click={() => editEstimation(estimation.id)}
+      <button class="secondary" on:click={() => editEstimation(estimation)}
         >Edit</button
       >
       <button class="secondary" on:click={() => deleteEstimation(estimation.id)}
