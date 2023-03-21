@@ -2,6 +2,8 @@
   import { getContext } from "svelte";
   import { scale } from "svelte/transition";
   import Button from "../components/Button.svelte";
+  import Pencil from "../components/icons/Pencil.svelte";
+  import Trash from "../components/icons/Trash.svelte";
 
   export let router = getContext("router");
   export let estimations = getContext("estimations");
@@ -28,8 +30,8 @@
     <header>
       <strong>{estimation.name}</strong>
       <div class="actions">
-        <Button variant="unstyled" on:click={() => editEstimation(estimation)}>Bearbeiten</Button>
-        <Button variant="unstyled" on:click={() => deleteEstimation(estimation.id)}>Löschen</Button>
+        <Button variant="unstyled" on:click={() => editEstimation(estimation)}><Pencil /></Button>
+        <Button variant="unstyled" on:click={() => deleteEstimation(estimation.id)}><Trash /></Button>
       </div>
     </header>
     <p>{estimation.description}</p>
@@ -41,7 +43,7 @@
 <style>
   header {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
   }
 
