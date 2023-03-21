@@ -4,6 +4,7 @@ import CreateEstimation from "../pages/CreateEstimation.svelte";
 import EditEstimation from "../pages/EditEstimation.svelte";
 import EstimateStories from "../pages/EstimateStories.svelte";
 import ListEstimations from "../pages/ListEstimations.svelte";
+import ShowStories from "../pages/ShowStories.svelte";
 
 // @ts-ignore
 const routes = new Map([
@@ -12,6 +13,7 @@ const routes = new Map([
   ["edit_estimation", EditEstimation],
   ["add_stories", AddStories],
   ["estimate_stories", EstimateStories],
+  ["show_stories", ShowStories],
 ]);
 
 export function createRouter(startValue = { route: "start_page", params: {} }) {

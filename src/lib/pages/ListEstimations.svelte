@@ -2,6 +2,7 @@
   import { getContext } from "svelte";
   import { scale } from "svelte/transition";
   import Button from "../components/Button.svelte";
+  import List from "../components/icons/List.svelte";
   import Pencil from "../components/icons/Pencil.svelte";
   import Trash from "../components/icons/Trash.svelte";
 
@@ -30,8 +31,18 @@
     <header>
       <strong>{estimation.name}</strong>
       <div class="actions">
-        <Button variant="unstyled" on:click={() => editEstimation(estimation)}><Pencil /></Button>
-        <Button variant="unstyled" on:click={() => deleteEstimation(estimation.id)}><Trash /></Button>
+        <Button
+          variant="unstyled"
+          on:click={() => router.goto("show_stories", { estimation })}
+          ><List title="Stories anzeigen" /></Button
+        >
+        <Button variant="unstyled" on:click={() => editEstimation(estimation)}
+          ><Pencil /></Button
+        >
+        <Button
+          variant="unstyled"
+          on:click={() => deleteEstimation(estimation.id)}><Trash /></Button
+        >
       </div>
     </header>
     <p>{estimation.description}</p>

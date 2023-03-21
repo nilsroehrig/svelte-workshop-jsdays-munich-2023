@@ -31,5 +31,138 @@
       "description": "Schätzung für die Einrichtung der Infrastruktur und des Deployment-Prozesses der Anwendung."
     }
   ],
-  "stories": []
+  "stories": [
+    {
+      "id": "575b585f-d6ad-469e-af76-06830b21ec92",
+      "text": "Anforderungen analysieren",
+      "size": "M",
+      "estimationId": "0deac403-75de-49af-a6bb-362e05c3757b"
+    },
+    {
+      "id": "7fa0d99c-aa7e-4a5c-a7a8-643d67b7bca1",
+      "text": "Prototypentwurf erstellen",
+      "size": "L",
+      "estimationId": "0deac403-75de-49af-a6bb-362e05c3757b"
+    },
+    {
+      "id": "fd4f4390-82dd-4c23-8801-510b1e9f3df3",
+      "text": "Funktionale Anforderungen implementieren",
+      "size": "XL",
+      "estimationId": "0deac403-75de-49af-a6bb-362e05c3757b"
+    },
+    {
+      "id": "f71bf717-39d2-4a33-9f6d-882a15dfec81",
+      "text": "Nicht-funktionale Anforderungen implementieren",
+      "size": "M",
+      "estimationId": "0deac403-75de-49af-a6bb-362e05c3757b"
+    },
+    {
+      "id": "9f3be3ed-d82f-4e4c-8f4a-df7ad44c5d19",
+      "text": "Prototyp testen und evaluieren",
+      "size": "L",
+      "estimationId": "0deac403-75de-49af-a6bb-362e05c3757b"
+    },
+    {
+      "id": "5a29e5d5-4f4b-4a4f-9474-607b9121d9e8",
+      "text": "Anforderungen sammeln",
+      "size": "M",
+      "estimationId": "9b7fbf3a-3c7e-4f06-aac9-14e0e7d2bfc5"
+    },
+    {
+      "id": "b9de1f8c-c4d1-435f-b4b4-4b8f4b29051f",
+      "text": "Sitemap erstellen",
+      "size": "S",
+      "estimationId": "9b7fbf3a-3c7e-4f06-aac9-14e0e7d2bfc5"
+    },
+    {
+      "id": "3d3b9fa9-8c87-4d92-98a7-6e0b6c26a6a2",
+      "text": "Wireframes erstellen",
+      "size": "L",
+      "estimationId": "9b7fbf3a-3c7e-4f06-aac9-14e0e7d2bfc5"
+    },
+    {
+      "id": "d47e9d2e-10c1-48e2-aa3d-df2c9d9f6a62",
+      "text": "UI-Design erstellen",
+      "size": "XL",
+      "estimationId": "9b7fbf3a-3c7e-4f06-aac9-14e0e7d2bfc5"
+    },
+    {
+      "id": "a4b4a1bb-4af3-4fcb-a3db-5c5c8a9b5a5b",
+      "text": "UX-Design erstellen",
+      "size": "L",
+      "estimationId": "9b7fbf3a-3c7e-4f06-aac9-14e0e7d2bfc5"
+    },
+    {
+      "id": "87b85f3d-3d37-4be8-bf08-af79ef752a9d",
+      "text": "Datenbankmodell entwerfen",
+      "size": "L",
+      "estimationId": "c439d9af-7454-4b90-b4cf-6a1323bb3314"
+    },
+    {
+      "id": "9d20cf72-8de9-413e-89f6-5a6a1a6c7f6a",
+      "text": "API-Entwicklung",
+      "size": "XL",
+      "estimationId": "c439d9af-7454-4b90-b4cf-6a1323bb3314"
+    },
+    {
+      "id": "12d27163-8408-4a03-9bde-9b98c8cfde62",
+      "text": "Authentifizierung und Autorisierung implementieren",
+      "size": "M",
+      "estimationId": "c439d9af-7454-4b90-b4cf-6a1323bb3314"
+    },
+    {
+      "id": "a9d2a2b2-eb67-4f26-b71b-3ef3c4f2694c",
+      "text": "Design System definieren",
+      "size": "M",
+      "estimationId": "8e8b1d9e-6f52-4d51-a510-0d95ed738c0e"
+    },
+    {
+      "id": "56a8b7ac-bb5f-4683-a3c3-7d8b5e5b2c2b",
+      "text": "Komponentenentwicklung",
+      "size": "L",
+      "estimationId": "8e8b1d9e-6f52-4d51-a510-0d95ed738c0e"
+    },
+    {
+      "id": "0dc1ca2e-8b96-4e2b-8694-75c01085c0f1",
+      "text": "Integrations-Tests schreiben",
+      "size": "S",
+      "estimationId": "8e8b1d9e-6f52-4d51-a510-0d95ed738c0e"
+    },
+    {
+      "id": "1e496f23-4b2f-4df4-b32e-8140ef21b0a6",
+      "text": "Unit-Tests schreiben",
+      "size": "M",
+      "estimationId": "de1f62eb-36c7-4a89-85ed-00866dc05f04"
+    },
+    {
+      "id": "f99d7870-c88b-4829-9c18-51a322b31e56",
+      "text": "Integrationstests schreiben",
+      "size": "L",
+      "estimationId": "de1f62eb-36c7-4a89-85ed-00866dc05f04"
+    },
+    {
+      "id": "6aa71d6e-72f5-4edf-9d2e-5f5da6da48c6",
+      "text": "Testberichte generieren",
+      "size": "S",
+      "estimationId": "de1f62eb-36c7-4a89-85ed-00866dc05f04"
+    },
+    {
+      "id": "e8d61d5e-ef1d-46aa-9cc8-2cc88d2efc5f",
+      "text": "Cloud-Infrastruktur aufsetzen",
+      "size": "L",
+      "estimationId": "be39efc5-93a7-46e5-ba7d-ba1b65aa2b24"
+    },
+    {
+      "id": "4b0d55ad-d4ea-4a20-9e89-b6e01184e554",
+      "text": "Deployment-Skripte schreiben",
+      "size": "M",
+      "estimationId": "be39efc5-93a7-46e5-ba7d-ba1b65aa2b24"
+    },
+    {
+      "id": "6d596437-86fc-4a90-b8ce-e10e215f12c1",
+      "text": "Konfiguration der Produktionsumgebung",
+      "size": "L",
+      "estimationId": "be39efc5-93a7-46e5-ba7d-ba1b65aa2b24"
+    }
+  ]
 }
