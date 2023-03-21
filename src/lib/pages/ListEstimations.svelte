@@ -1,6 +1,7 @@
 <script>
   import { getContext } from "svelte";
   import { scale } from "svelte/transition";
+  import Button from "../components/Button.svelte";
 
   export let router = getContext("router");
   export let estimations = getContext("estimations");
@@ -24,29 +25,33 @@
 
 {#each $estimations as estimation (estimation.id)}
   <article transition:scale|local>
-    <header><strong>{estimation.name}</strong></header>
+    <header>
+      <strong>{estimation.name}</strong>
+      <div class="actions">
+        <Button variant="unstyled" on:click={() => editEstimation(estimation)}>Bearbeiten</Button>
+        <Button variant="unstyled" on:click={() => deleteEstimation(estimation.id)}>Löschen</Button>
+      </div>
+    </header>
     <p>{estimation.description}</p>
-    <footer>
-      <button class="secondary" on:click={() => editEstimation(estimation)}
-        >Edit</button
-      >
-      <button class="secondary" on:click={() => deleteEstimation(estimation.id)}
-        >Delete</button
-      >
-    </footer>
   </article>
 {:else}
   <p>Bislang wurde noch nichts geschätzt.</p>
 {/each}
 
 <style>
-  footer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
   }
 
-  footer button {
-    margin: 0;
+  article > p {
+    margin-bottom: 0;
+  }
+
+  .actions {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
   }
 </style>
