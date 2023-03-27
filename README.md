@@ -26,11 +26,6 @@ Die Applikation kann auch für das Deployment auf Produktion gebaut werden. Dadu
 npm run build
 ```
 
-Nachdem die Applikation gebaut wurde, kann man eine Vorschau des gebauten Standes im Browser betrachten:
-```bash
-npm run previeww
-```
-
 ### Linting und Formatierung
 
 Für das Projekt sind der Linter ESLint, sowie der Formatierer Prettier konfiguriert. Um die Dateien im Repository durch diese Tools verarbeiten zu lassen, kann man folgende Skripte verwenden:
